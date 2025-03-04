@@ -1,15 +1,12 @@
-# Lecture 1
+# Lecture 2 Encoding and Entropy
 
 **Assumption**:
-
 1. Infinite communication
 2. A prob distribution over the messages
-
 **Goal**:
 Minimize average code length
 
-**Prefix-Free Codes And Uniquely Decodable Codes**:
-
+**Prefix-Free Codes**
 1. Prefix-free is a sufficient condition
 2. Prefix-free is not a necessary condition
 
@@ -25,7 +22,7 @@ Problem:
 $$
 \begin{align}
 &\forall C^*\in B,s.t.E[l(C^*)]\text{ achieves the minimum},\\
-&\exists C'\in A, E[l(C')]=E[l(C^*)].
+&\exists C'\in A, E[l(C')]=E[l(C^*)]?
 \end{align}
 $$
 
@@ -52,8 +49,16 @@ The entropy of $X$ is
 $$
 H(X)=\sum_{i=1}^n p_i\log_2\frac{1}{p_i}
 $$
-
 1. Minimum code length(description length)
 2. Quantify information
 3. Uniform distribution, $H(X)$ maximum; deterministic, $H(X)=0$
 4. $H$ measures uncertainty of $X$
+
+Entropy has a physical dimension:
+$$
+H(X)=\sum_{i=1}^n p_i\log_2\frac{1}{p_i}(\text{bits})
+$$
+
+Given $X=(m_1,\cdots,m_n)$, the amount of information of $m_i$ is $\log_2\frac{1}{p_i}(\text{bits})$.
+
+Given random variables $X$ with prob $(p_1,\cdots,p_{n-1},p_n)$, $Y$ with prob $(\frac{q_1}{q_1+q_2},\frac{q_2}{q_1+q_2})$, and $Z$ with prob $(p_1,\cdots,p_{n-1},q_1,q_2)$, $p_n=q_1+q_2$($q_1$ and $q_2$ are subcases of $p_n$), we have $H(X)+p_nH(Y)=H(Z)$.
