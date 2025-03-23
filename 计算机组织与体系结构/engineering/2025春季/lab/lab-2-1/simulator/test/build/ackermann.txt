@@ -1,0 +1,195 @@
+
+build/ackermann.elf:     file format elf64-littleriscv
+
+
+Disassembly of section .text:
+
+0000000080000000 <_start>:
+    80000000:	00000413          	li	s0,0
+    80000004:	00009117          	auipc	sp,0x9
+    80000008:	ffc10113          	addi	sp,sp,-4 # 80009000 <_end>
+    8000000c:	29c000ef          	jal	ra,800002a8 <_trm_init>
+
+0000000080000010 <check>:
+    80000010:	00050463          	beqz	a0,80000018 <check+0x8>
+    80000014:	00008067          	ret
+    80000018:	00100513          	li	a0,1
+    8000001c:	2800006f          	j	8000029c <halt>
+
+0000000080000020 <ackermann>:
+    80000020:	20050e63          	beqz	a0,8000023c <ackermann+0x21c>
+    80000024:	fb010113          	addi	sp,sp,-80
+    80000028:	01813023          	sd	s8,0(sp)
+    8000002c:	04113423          	sd	ra,72(sp)
+    80000030:	04813023          	sd	s0,64(sp)
+    80000034:	02913c23          	sd	s1,56(sp)
+    80000038:	03213823          	sd	s2,48(sp)
+    8000003c:	03313423          	sd	s3,40(sp)
+    80000040:	03413023          	sd	s4,32(sp)
+    80000044:	01513c23          	sd	s5,24(sp)
+    80000048:	01613823          	sd	s6,16(sp)
+    8000004c:	01713423          	sd	s7,8(sp)
+    80000050:	00050c13          	mv	s8,a0
+    80000054:	fffc0b9b          	addiw	s7,s8,-1
+    80000058:	20059063          	bnez	a1,80000258 <ackermann+0x238>
+    8000005c:	140b8463          	beqz	s7,800001a4 <ackermann+0x184>
+    80000060:	ffec0c1b          	addiw	s8,s8,-2
+    80000064:	fffb8b1b          	addiw	s6,s7,-1
+    80000068:	1c059e63          	bnez	a1,80000244 <ackermann+0x224>
+    8000006c:	100b0c63          	beqz	s6,80000184 <ackermann+0x164>
+    80000070:	ffeb8b9b          	addiw	s7,s7,-2
+    80000074:	fffb0a9b          	addiw	s5,s6,-1
+    80000078:	1a059863          	bnez	a1,80000228 <ackermann+0x208>
+    8000007c:	0e0a8663          	beqz	s5,80000168 <ackermann+0x148>
+    80000080:	ffeb0b1b          	addiw	s6,s6,-2
+    80000084:	fffa8a1b          	addiw	s4,s5,-1
+    80000088:	18059663          	bnez	a1,80000214 <ackermann+0x1f4>
+    8000008c:	0c0a0a63          	beqz	s4,80000160 <ackermann+0x140>
+    80000090:	ffea8a9b          	addiw	s5,s5,-2
+    80000094:	fffa099b          	addiw	s3,s4,-1
+    80000098:	16059463          	bnez	a1,80000200 <ackermann+0x1e0>
+    8000009c:	0a098e63          	beqz	s3,80000158 <ackermann+0x138>
+    800000a0:	ffea0a1b          	addiw	s4,s4,-2
+    800000a4:	fff9891b          	addiw	s2,s3,-1
+    800000a8:	14059263          	bnez	a1,800001ec <ackermann+0x1cc>
+    800000ac:	0a090263          	beqz	s2,80000150 <ackermann+0x130>
+    800000b0:	ffe9899b          	addiw	s3,s3,-2
+    800000b4:	fff9049b          	addiw	s1,s2,-1
+    800000b8:	12059063          	bnez	a1,800001d8 <ackermann+0x1b8>
+    800000bc:	08048663          	beqz	s1,80000148 <ackermann+0x128>
+    800000c0:	ffe9091b          	addiw	s2,s2,-2
+    800000c4:	fff4841b          	addiw	s0,s1,-1
+    800000c8:	0c059463          	bnez	a1,80000190 <ackermann+0x170>
+    800000cc:	06040a63          	beqz	s0,80000140 <ackermann+0x120>
+    800000d0:	ffe4849b          	addiw	s1,s1,-2
+    800000d4:	fff4051b          	addiw	a0,s0,-1
+    800000d8:	08059c63          	bnez	a1,80000170 <ackermann+0x150>
+    800000dc:	04050e63          	beqz	a0,80000138 <ackermann+0x118>
+    800000e0:	ffe4041b          	addiw	s0,s0,-2
+    800000e4:	f3dff0ef          	jal	ra,80000020 <ackermann>
+    800000e8:	00050593          	mv	a1,a0
+    800000ec:	fe0414e3          	bnez	s0,800000d4 <ackermann+0xb4>
+    800000f0:	0015059b          	addiw	a1,a0,1
+    800000f4:	fc0498e3          	bnez	s1,800000c4 <ackermann+0xa4>
+    800000f8:	0015859b          	addiw	a1,a1,1
+    800000fc:	fa091ce3          	bnez	s2,800000b4 <ackermann+0x94>
+    80000100:	0015859b          	addiw	a1,a1,1
+    80000104:	fa0990e3          	bnez	s3,800000a4 <ackermann+0x84>
+    80000108:	0015859b          	addiw	a1,a1,1
+    8000010c:	f80a14e3          	bnez	s4,80000094 <ackermann+0x74>
+    80000110:	0015859b          	addiw	a1,a1,1
+    80000114:	f60a98e3          	bnez	s5,80000084 <ackermann+0x64>
+    80000118:	0015859b          	addiw	a1,a1,1
+    8000011c:	f40b1ce3          	bnez	s6,80000074 <ackermann+0x54>
+    80000120:	0015859b          	addiw	a1,a1,1
+    80000124:	f40b90e3          	bnez	s7,80000064 <ackermann+0x44>
+    80000128:	0015859b          	addiw	a1,a1,1
+    8000012c:	f20c14e3          	bnez	s8,80000054 <ackermann+0x34>
+    80000130:	0015851b          	addiw	a0,a1,1
+    80000134:	0740006f          	j	800001a8 <ackermann+0x188>
+    80000138:	00200593          	li	a1,2
+    8000013c:	fb9ff06f          	j	800000f4 <ackermann+0xd4>
+    80000140:	00200593          	li	a1,2
+    80000144:	fb9ff06f          	j	800000fc <ackermann+0xdc>
+    80000148:	00200593          	li	a1,2
+    8000014c:	fb9ff06f          	j	80000104 <ackermann+0xe4>
+    80000150:	00200593          	li	a1,2
+    80000154:	fb9ff06f          	j	8000010c <ackermann+0xec>
+    80000158:	00200593          	li	a1,2
+    8000015c:	fb9ff06f          	j	80000114 <ackermann+0xf4>
+    80000160:	00200593          	li	a1,2
+    80000164:	fb9ff06f          	j	8000011c <ackermann+0xfc>
+    80000168:	00200593          	li	a1,2
+    8000016c:	fb9ff06f          	j	80000124 <ackermann+0x104>
+    80000170:	00050793          	mv	a5,a0
+    80000174:	fff5859b          	addiw	a1,a1,-1
+    80000178:	00040513          	mv	a0,s0
+    8000017c:	00078413          	mv	s0,a5
+    80000180:	f65ff06f          	j	800000e4 <ackermann+0xc4>
+    80000184:	00200593          	li	a1,2
+    80000188:	ec0c16e3          	bnez	s8,80000054 <ackermann+0x34>
+    8000018c:	fa5ff06f          	j	80000130 <ackermann+0x110>
+    80000190:	00040793          	mv	a5,s0
+    80000194:	fff5859b          	addiw	a1,a1,-1
+    80000198:	00048413          	mv	s0,s1
+    8000019c:	00078493          	mv	s1,a5
+    800001a0:	f35ff06f          	j	800000d4 <ackermann+0xb4>
+    800001a4:	00200513          	li	a0,2
+    800001a8:	04813083          	ld	ra,72(sp)
+    800001ac:	04013403          	ld	s0,64(sp)
+    800001b0:	03813483          	ld	s1,56(sp)
+    800001b4:	03013903          	ld	s2,48(sp)
+    800001b8:	02813983          	ld	s3,40(sp)
+    800001bc:	02013a03          	ld	s4,32(sp)
+    800001c0:	01813a83          	ld	s5,24(sp)
+    800001c4:	01013b03          	ld	s6,16(sp)
+    800001c8:	00813b83          	ld	s7,8(sp)
+    800001cc:	00013c03          	ld	s8,0(sp)
+    800001d0:	05010113          	addi	sp,sp,80
+    800001d4:	00008067          	ret
+    800001d8:	00048793          	mv	a5,s1
+    800001dc:	fff5859b          	addiw	a1,a1,-1
+    800001e0:	00090493          	mv	s1,s2
+    800001e4:	00078913          	mv	s2,a5
+    800001e8:	eddff06f          	j	800000c4 <ackermann+0xa4>
+    800001ec:	00090793          	mv	a5,s2
+    800001f0:	fff5859b          	addiw	a1,a1,-1
+    800001f4:	00098913          	mv	s2,s3
+    800001f8:	00078993          	mv	s3,a5
+    800001fc:	eb9ff06f          	j	800000b4 <ackermann+0x94>
+    80000200:	00098793          	mv	a5,s3
+    80000204:	fff5859b          	addiw	a1,a1,-1
+    80000208:	000a0993          	mv	s3,s4
+    8000020c:	00078a13          	mv	s4,a5
+    80000210:	e95ff06f          	j	800000a4 <ackermann+0x84>
+    80000214:	000a0793          	mv	a5,s4
+    80000218:	fff5859b          	addiw	a1,a1,-1
+    8000021c:	000a8a13          	mv	s4,s5
+    80000220:	00078a93          	mv	s5,a5
+    80000224:	e71ff06f          	j	80000094 <ackermann+0x74>
+    80000228:	000a8793          	mv	a5,s5
+    8000022c:	fff5859b          	addiw	a1,a1,-1
+    80000230:	000b0a93          	mv	s5,s6
+    80000234:	00078b13          	mv	s6,a5
+    80000238:	e4dff06f          	j	80000084 <ackermann+0x64>
+    8000023c:	0015851b          	addiw	a0,a1,1
+    80000240:	00008067          	ret
+    80000244:	000b0793          	mv	a5,s6
+    80000248:	fff5859b          	addiw	a1,a1,-1
+    8000024c:	000b8b13          	mv	s6,s7
+    80000250:	00078b93          	mv	s7,a5
+    80000254:	e21ff06f          	j	80000074 <ackermann+0x54>
+    80000258:	000b8793          	mv	a5,s7
+    8000025c:	fff5859b          	addiw	a1,a1,-1
+    80000260:	000c0b93          	mv	s7,s8
+    80000264:	00078c13          	mv	s8,a5
+    80000268:	dfdff06f          	j	80000064 <ackermann+0x44>
+
+000000008000026c <main>:
+    8000026c:	ff010113          	addi	sp,sp,-16
+    80000270:	00500593          	li	a1,5
+    80000274:	00200513          	li	a0,2
+    80000278:	00113423          	sd	ra,8(sp)
+    8000027c:	da5ff0ef          	jal	ra,80000020 <ackermann>
+    80000280:	ff350513          	addi	a0,a0,-13
+    80000284:	00153513          	seqz	a0,a0
+    80000288:	d89ff0ef          	jal	ra,80000010 <check>
+    8000028c:	00813083          	ld	ra,8(sp)
+    80000290:	00000513          	li	a0,0
+    80000294:	01010113          	addi	sp,sp,16
+    80000298:	00008067          	ret
+
+000000008000029c <halt>:
+    8000029c:	00050513          	mv	a0,a0
+    800002a0:	00100073          	ebreak
+    800002a4:	0000006f          	j	800002a4 <halt+0x8>
+
+00000000800002a8 <_trm_init>:
+    800002a8:	ff010113          	addi	sp,sp,-16
+    800002ac:	00000517          	auipc	a0,0x0
+    800002b0:	01c50513          	addi	a0,a0,28 # 800002c8 <_etext>
+    800002b4:	00113423          	sd	ra,8(sp)
+    800002b8:	fb5ff0ef          	jal	ra,8000026c <main>
+    800002bc:	00050513          	mv	a0,a0
+    800002c0:	00100073          	ebreak
+    800002c4:	0000006f          	j	800002c4 <_trm_init+0x1c>
